@@ -11,9 +11,17 @@ Automatically switches to **Chinese IME** when entering Insert mode, and back to
   - `InsertEnter` → switches to Chinese (default: `2052`)
   - `InsertLeave`, `Normal`, `Visual`, `Command` → switches to English (default: `1033`)
 - ⚙️ **Fully configurable**
-  - Enable or disable switching for each event
+  - Enable/disable all events with a single toggle
+  - Enable or disable switching for individual events (`VimEnter`, `InsertEnter`, `InsertLeave`, `VimLeave`)
   - Customize IME language codes per event
   - Specify your own path to `im-select.exe`
+- ⌨️ **Manual control**
+  - Toggle with a custom key mapping (e.g. `<leader>ti`)
+  - Or use the `:ImeflowToggle` command
+- 🔎 **Status query**
+  - Use `:ImeflowStatus` to show current state:
+    - Global enable/disable
+    - Individual event states (`VimEnter`, `InsertEnter`, `InsertLeave`, `VimLeave`)
 - 🔍 **Zero-configuration path detection**
   - If `im-select.exe` is placed in the plugin directory, no path setup is needed
 - 💤 **Supports lazy-loading**
@@ -43,6 +51,10 @@ Automatically switches to **Chinese IME** when entering Insert mode, and back to
   event = "InsertEnter",   -- Lazy-load the plugin when entering Insert mode for the first time
   opts = {
     -- path = "D:/tools/im-select.exe",  -- (Optional) Absolute path to im-select.exe if not using the default bundled one
+    enable = true,          -- Start enabled (default: true)
+    mapping = "<leader>ti", -- Optional toggle mapping
+
+    -- Optional per-event enable/disable
     VimEnter    = true,    -- Switch to English input method when Neovim starts
     InsertEnter = true,    -- Switch to Chinese input method when entering Insert mode
     InsertLeave = true,    -- Switch back to English when leaving Insert mode
@@ -59,6 +71,13 @@ opts = {
   -- …other flags
 }
 ```
+
+---
+
+## ⚡ Commands
+
+:ImeflowToggle → Toggle the plugin (enabled/disabled)  
+:ImeflowStatus → Show current plugin status including all events
 
 ---
 
