@@ -51,7 +51,7 @@ Automatically switches to **Chinese IME** when entering Insert mode, and back to
   event = "InsertEnter",   -- Lazy-load the plugin when entering Insert mode for the first time
   opts = {
     -- path = "D:/tools/im-select.exe",  -- (Optional) Absolute path to im-select.exe if not using the default bundled one
-    enable = true,          -- Start enabled (default: true)
+    enabled = true,          -- Start enabled (default: true)
     mapping = "<leader>ti", -- Optional toggle mapping
 
     -- Optional per-event enable/disable
